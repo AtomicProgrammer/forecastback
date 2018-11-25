@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%date{yyyy-MM-dd HH:mm:ss.SSS} | %highlight(%-5level) [%boldYellow(%22thread)] %boldGreen(%-88logger) | %45file - %5line | %msg%n"/>
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>${CONSOLE_LOG_PATTERN}</Pattern>
+        </layout>
+
+    </appender>
+
+
+    <!-- SQL and bind values -->
+    <logger name="io.ebean.SQL" level="TRACE">
+    </logger>
+
+    <!-- Transaction Commit and Rollback events -->
+    <logger name="io.ebean.TXN" level="TRACE"/>
+    <!--根日志级别-->
+    <root>
+        <level value="INFO" />
+        <appender-ref ref="consoleAppender"/>
+    </root>
+</configuration>
